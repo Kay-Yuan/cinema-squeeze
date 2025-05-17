@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CinemaSqueeze", "CinemaSqueeze.csproj", "{B7FEC882-BC81-2E69-2CC7-1A194E124381}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7FEC882-BC81-2E69-2CC7-1A194E124381}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7FEC882-BC81-2E69-2CC7-1A194E124381}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7FEC882-BC81-2E69-2CC7-1A194E124381}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7FEC882-BC81-2E69-2CC7-1A194E124381}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {56DFD615-00E1-482F-B78B-9603566A5D51}
+	EndGlobalSection
+EndGlobal
