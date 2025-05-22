@@ -2,8 +2,9 @@
 
 This project is a full-stack web application designed to help users compare movie ticket prices from two independent providers — **Cinemaworld** and **Filmworld** — and identify the **cheapest available option**. The application is built with a strong emphasis on **resilience**, **user experience**, and **code quality**, reflecting a real-world scenario where third-party APIs can be unreliable or partially unavailable.
 
-![Image](https://github.com/user-attachments/assets/5e688569-fcba-4b04-8247-7168579447b9)
-![Image](https://github.com/user-attachments/assets/45397f0d-a009-4e68-ae5f-736d102b06b9)
+![Image](https://github.com/user-attachments/assets/056984d7-76cb-46e0-8606-1e5ac9d95336)
+![Image](https://github.com/user-attachments/assets/2bc98fcd-3371-4232-83c5-1203fd6fa237)
+![Image](https://github.com/user-attachments/assets/d6644c45-fa18-434f-a95d-250d1935d859)
 
 The goal is to deliver a responsive, user-friendly interface where users can:
 
@@ -37,7 +38,7 @@ Please check if you have below sdk before you continue setup
 | Package       | Installation                                       |
 | ------------- | -------------------------------------------------- |
 | .NET Core ≥ 9 | https://dotnet.microsoft.com/en-us/download/dotnet |
-| node.js       | https://nodejs.org/en/download                     |
+| node.js ≥ 20  | https://nodejs.org/en/download                     |
 | Docker        | https://www.docker.com/products/docker-desktop/    |
 
 The project structure looks like below,

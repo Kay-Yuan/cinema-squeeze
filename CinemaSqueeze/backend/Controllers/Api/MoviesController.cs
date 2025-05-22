@@ -58,7 +58,7 @@ namespace CinemaSqueeze.Controllers.Api
         }
 
         [HttpGet("{title}")]
-        public async Task<IActionResult> GetById(string title)
+        public async Task<IActionResult> GetByTitle(string title)
         {
             // Normalize the title to match the Redis key format
             title = title.Replace(" ", "_").ToLower();
