@@ -20,6 +20,7 @@ The goal is to deliver a responsive, user-friendly interface where users can:
 - **Secure token handling**: API tokens are stored securely using `.NET` **Secret Manager** best practices to prevent public exposure.
 - **Seamless frontend experience**: Built with `Next.js` and `Tailwind CSS`, offering a modern, responsive UI with a focus on accessibility and performance.
 - **Scalable architecture**: Designed to easily extend support for additional movie providers or future enhancements.
+- **Search more**: User can search movie by keyword like tile, genre etc.
 
 ### 🛠️ Technologies Used
 
