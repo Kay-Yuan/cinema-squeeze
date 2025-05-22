@@ -34,7 +34,6 @@ builder.Services.AddCors(options =>
     });
 });
 
-
 // Configure 1 Redis (shared for cache and Hangfire)
 builder.Services.AddSingleton<IConnectionMultiplexer>(
     ConnectionMultiplexer.Connect("localhost:6379") // adjust for your Redis setup
@@ -70,8 +69,6 @@ builder.Services.AddScoped<IRedisCacheService, RedisCacheService>();
 // builder.Services.AddScoped<ICacheInitializer, CacheInitializer>();
 
 
-//
-
 var app = builder.Build();
 
 // Use Hangfire Dashboard (Optional, for monitoring jobs)
@@ -88,18 +85,6 @@ app.UseCors();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
-// api test
-// app.MapGet("/movies", () =>
-// {
-//     var movies = new[]
-//     {
-//         new MovieInMovies { Title = "Inception", Genre = "Sci-Fi", Year = 2010, ReleaseDate = DateTime.Now },
-//         new MovieInMovies { Title = "The Matrix", Genre = "Action", Year = 1999, ReleaseDate = DateTime.Now },
-//         new MovieInMovies { Title = "Interstellar", Genre = "Sci-Fi", Year = 2014, ReleaseDate = DateTime.Now },
-//     };
-
-
 
 //     return movies;
 // });

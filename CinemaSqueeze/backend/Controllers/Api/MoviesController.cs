@@ -12,10 +12,11 @@ namespace CinemaSqueeze.Controllers.Api
     public class MoviesController : ControllerBase
     {
         private readonly IRedisCacheService _redis;
-
-        public MoviesController(IRedisCacheService redis)
+        ILogger<MoviesController> _logger;
+        public MoviesController(IRedisCacheService redis, ILogger<MoviesController> logger)
         {
             _redis = redis;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -39,7 +40,7 @@ namespace CinemaSqueeze.Controllers.Api
                     }
                     else
                     {
-                        Console.WriteLine($"\n ======== {DateTime.Now} No movie found for key: {key} ======== \n");
+                        _logger.LogInformation($"\n ======== {DateTime.Now} No movie found for key: {key} ======== \n");
                     }
                 }
 
@@ -47,30 +48,27 @@ namespace CinemaSqueeze.Controllers.Api
                 {
                     return NotFound("Movie not found");
                 }
-
-                Console.WriteLine($"\n ======== Get Redis Cache ======== \n");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"\n ======== {DateTime.Now} Exception: {ex.Message} ======== \n");
+                _logger.LogInformation($"\n ======== {DateTime.Now} Exception: {ex.Message} ======== \n");
                 return StatusCode(StatusCodes.Status500InternalServerError, "Internal server error");
             }
             return Ok(movies);
-
-            // return Ok("movies");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(string id)
+        [HttpGet("{title}")]
+        public async Task<IActionResult> GetById(string title)
         {
-            var movie = await _redis.GetMoviesInRedisAsync($"movie:{id}");
+            // Normalize the title to match the Redis key format
+            title = title.Replace(" ", "_").ToLower();
+            var movie = await _redis.GetMoviesInRedisAsync($"movie:{title}");
 
             if (movie == null)
             {
                 return NotFound("Movie not found");
             }
 
-            Console.WriteLine($"\n ======== Get Redis Cache ======== \n");
             return Ok(movie);
         }
     }

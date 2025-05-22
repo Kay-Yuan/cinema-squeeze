@@ -8,6 +8,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { getMovie } from "@/services/movie"
 import { notFound } from "next/navigation"
 import { useMovieContext } from "@/context/MovieContext"
+import MovieImage from "@/components/MovieImage"
 
 export default function MovieDetail({ params }: { params: { id: string } }) {
   const { selectedMovie } = useMovieContext();
@@ -36,11 +37,7 @@ export default function MovieDetail({ params }: { params: { id: string } }) {
         {/* Movie Poster */}
         <div className="md:col-span-1">
           <div className="rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={selectedMovie.poster || "/placeholder.svg?height=600&width=400"}
-              alt={selectedMovie.title}
-              className="w-full h-auto object-cover"
-            />
+            <MovieImage movie={selectedMovie} className="w-full h-auto object-cover" />
           </div>
         </div>
 
@@ -192,6 +189,12 @@ export default function MovieDetail({ params }: { params: { id: string } }) {
                         <DollarSign className="h-4 w-4 mr-1 text-green-500" />
                         {provider.price.toFixed(2)}
                       </div>
+                      <button 
+                        className="bg-green-500 text-white rounded-full py-2 px-6 text-sm shadow-md hover:bg-green-600 hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-300 transition-all duration-300 ease-in-out transform"
+                        // onClick={() => handleBuyTicketClick(movie)}
+                      >
+                        Buy Ticket
+                      </button>
                     </div>
                   </CardContent>
                 </Card>

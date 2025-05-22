@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import { Movie } from "@/types/movie"
-import { MovieImage } from "@/components/ui/MovieImage"
+import { MovieImage } from "@/components/MovieImage"
 import Link from "next/link"
 import { useMovieContext } from "@/context/MovieContext"
 import { useRouter } from 'next/navigation'
@@ -91,12 +91,16 @@ export default function MovieList() {
 
   const handleMovieClick = (movie: Movie) => {
     setSelectedMovie(movie);
-    router.push(`/movies/${movie.providers[0].movieId.match(/\d+(\.\d+)?/g)}`);
+    
+    // normalize the title for the URL
+    const normalizedTitle = movie.title.toLowerCase().replace(/\s+/g, '_');
+   
+    router.push(`/movies/${normalizedTitle}`);
   };
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold mb-8 text-center">Movie Collection</h1>
+      <h1 className="text-3xl font-bold mb-8 text-center">Movie Squeeze</h1>
 
       {/* Search Bar */}
       <div className="relative max-w-md mx-auto mb-10">
@@ -135,7 +139,7 @@ export default function MovieList() {
           >
             {filteredMovies.map((movie) => (
               <div key={movie.title} className="flex-none w-[250px] snap-start">
-                <Link href={`/movies/${movie.providers[0].movieId.match(/\d+(\.\d+)?/g)}`} onClick={() => handleMovieClick(movie)}>
+                <Link href={`/movies/${movie.title.toLowerCase().replace(/\s+/g, '_')}`} onClick={() => handleMovieClick(movie)}>
                 <Card className="h-full overflow-hidden transition-all duration-200 hover:shadow-lg">
                   <div className="aspect-[3/4] relative bg-muted">
                     <MovieImage movie={movie} />
