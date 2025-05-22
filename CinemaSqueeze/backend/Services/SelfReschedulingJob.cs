@@ -16,7 +16,7 @@ public class SelfReschedulingJob
     public async Task Run()
     {
         await _movieService.FetchAndCacheMoviesAsync();
-        BackgroundJob.Schedule<SelfReschedulingJob>(job => job.Run(), TimeSpan.FromSeconds(30));
+        BackgroundJob.Schedule<SelfReschedulingJob>(job => job.Run(), TimeSpan.FromSeconds(250));
     }
 }
 

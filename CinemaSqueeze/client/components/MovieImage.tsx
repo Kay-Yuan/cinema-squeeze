@@ -5,9 +5,10 @@ import { useState } from 'react';
 
 type Props = {
   movie?: Movie;
+  className?: string;
 };
 
-export default function MovieImage({ movie }: Props) {
+export default function MovieImage({ movie, className }: Props) {
   const fallback = '/No-Image-Placeholder.svg';
   const [imgSrc, setImgSrc] = useState(movie?.poster || fallback);
 
@@ -15,7 +16,7 @@ export default function MovieImage({ movie }: Props) {
     <img
         src={imgSrc}
         alt={movie?.title || "No Image"}
-        className="object-cover w-full h-full"
+        className= {className ||"object-cover w-full h-full"}
         onError={() => {
         setImgSrc(fallback)
         }}
